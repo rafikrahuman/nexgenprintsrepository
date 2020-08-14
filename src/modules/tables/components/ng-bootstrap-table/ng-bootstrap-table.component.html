@@ -1,0 +1,135 @@
+<!-- <form>
+    <div class="form-group form-inline">Full text search: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="countryService.searchTerm" /><span class="ml-3" *ngIf="countryService.loading$ | async">Loading...</span></div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col" sbSortable="name" (sort)="onSort($event)"><span>Country</span><sb-sort-icon *ngIf='sortedColumn === "name"' [direction]="sortedDirection"></sb-sort-icon></th>
+                <th scope="col" sbSortable="area" (sort)="onSort($event)"><span>Area</span><sb-sort-icon *ngIf='sortedColumn === "area"' [direction]="sortedDirection"></sb-sort-icon></th>
+                <th scope="col" sbSortable="population" (sort)="onSort($event)"><span>Population</span><sb-sort-icon *ngIf='sortedColumn === "population"' [direction]="sortedDirection"></sb-sort-icon></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let country of countries$ | async">
+                <th scope="row">{{ country.id }}</th>
+                <td><img class="mr-2" [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" style="width: 20px;" /><ngb-highlight [result]="country.name" [term]="countryService.searchTerm"></ngb-highlight></td>
+                <td><ngb-highlight [result]="country.area | number" [term]="countryService.searchTerm"></ngb-highlight></td>
+                <td><ngb-highlight [result]="country.population | number" [term]="countryService.searchTerm"></ngb-highlight></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="total$ | async" [(page)]="countryService.page" [pageSize]="countryService.pageSize"></ngb-pagination
+        ><select class="custom-select" style="width: auto;" name="pageSize" [(ngModel)]="countryService.pageSize"
+            ><option [ngValue]="2">2 items per page</option
+            ><option [ngValue]="4">4 items per page</option
+            ><option [ngValue]="6">6 items per page</option></select
+        >
+    </div>
+</form> -->
+
+<!------------------------------------------------------------>
+
+<form>
+    <!-- <div class="conatiner" style="padding-top:20px;">
+        <div class="col-sm-5" style="padding-top:20px;padding-bottom:20px;">
+            <input class="form-control" type="text" name="txtsearch" placeholder="Search......." [(ngModel)]="filter">
+        </div>
+    </div> -->
+    <table class="table table-striped">
+        <thead [style.background-color]=bgcolor>
+            <tr >
+                <th scope="col">#</th>
+
+                <th hidden=true scope="col" sbSortable="Unique_ID" (sort)="onSort($event)"><span>Unique ID</span>
+                    <sb-sort-icon *ngIf='sortedColumn === "Unique_ID"' [direction]="sortedDirection"></sb-sort-icon>
+                </th>
+                <th scope="col" sbSortable="Cycle_Date" (sort)="onSort($event)"><span>Cycle Date</span>
+                    <sb-sort-icon *ngIf='sortedColumn === "Cycle_Date"' [direction]="sortedDirection"></sb-sort-icon>
+                </th>
+                <th hidden=true scope="col" sbSortable="Processing_Date" (sort)="onSort($event)"><span>Processing
+                        Date</span>
+                    <sb-sort-icon *ngIf='sortedColumn === "Processing_Date"' [direction]="sortedDirection">
+                    </sb-sort-icon>
+                </th>
+                <th scope="col" sbSortable="File_Name" (sort)="onSort($event)"><span>File Name</span>
+                    <sb-sort-icon *ngIf='sortedColumn === "File_Name"' [direction]="sortedDirection"></sb-sort-icon>
+                </th>
+
+                <th scope="col" sbSortable="Data_Received" (sort)="onSort($event)"><span>Data Received</span>
+                    <sb-sort-icon *ngIf='sortedColumn === "Data_Received"' [direction]="sortedDirection"></sb-sort-icon>
+                </th>
+                <th hidden=true scope="col" sbSortable="Sample_Sent_for_Approval" (sort)="onSort($event)"><span>Sample
+                        Sent for Approval</span>
+                    <sb-sort-icon *ngIf='sortedColumn === "Sample_Sent_for_Approval"' [direction]="sortedDirection">
+                    </sb-sort-icon>
+                </th>
+                <th scope="col" sbSortable="Bills" (sort)="onSort($event)"><span>Bills</span>
+                    <sb-sort-icon *ngIf='sortedColumn === "Bills"' [direction]="sortedDirection"></sb-sort-icon>
+                </th>
+                <th scope="col" sbSortable="Approval_Received" (sort)="onSort($event)"><span>Approval Received</span>
+                    <sb-sort-icon *ngIf='sortedColumn === "Approval_Received"' [direction]="sortedDirection">
+                    </sb-sort-icon>
+                </th>
+                <th scope="col" sbSortable="Printing_Completed" (sort)="onSort($event)"><span>Printing Completed</span>
+                    <sb-sort-icon *ngIf='sortedColumn === "Printing_Completed"' [direction]="sortedDirection">
+                    </sb-sort-icon>
+                </th>
+                <th scope="col" sbSortable="DC_Number" (sort)="onSort($event)"><span>DC Number</span>
+                    <sb-sort-icon *ngIf='sortedColumn === "DC_Number"' [direction]="sortedDirection"></sb-sort-icon>
+                </th>
+                <th scope="col" sbSortable="DC_Created_Date" (sort)="onSort($event)"><span>DC Created Date</span>
+                    <sb-sort-icon *ngIf='sortedColumn === "DC_Created_Date"' [direction]="sortedDirection">
+                    </sb-sort-icon>
+                </th>
+                <th hidden=true scope="col" sbSortable="Taken_For_DElivery" (sort)="onSort($event)"><span>Taken For
+                        DElivery</span>
+                    <sb-sort-icon *ngIf='sortedColumn === "Taken_For_DElivery"' [direction]="sortedDirection">
+                    </sb-sort-icon>
+                </th>
+                <th scope="col" sbSortable="Dispatched_Date" (sort)="onSort($event)"><span>Dispatched Date</span>
+                    <sb-sort-icon *ngIf='sortedColumn === "Dispatched_Date"' [direction]="sortedDirection">
+                    </sb-sort-icon>
+                </th>
+                <th scope="col" sbSortable="Delivered_Date_Time" (sort)="onSort($event)"><span>Delivered Date
+                        Time</span>
+                    <sb-sort-icon *ngIf='sortedColumn === "Delivered_Date_Time"' [direction]="sortedDirection">
+                    </sb-sort-icon>
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let receipt of receiptModel  |filter:filter| paginate: { itemsPerPage: 4, currentPage: p }">
+
+                <th scope="row">{{ receipt.sno }}</th>
+                <td hidden=true> {{ receipt.uniqueId }} </td>
+                <td> {{ receipt.cycleDate  |  date:'MM/dd/yyyy'}} </td>
+                <td hidden=true> {{receipt.processingDate  |  date:'MM/dd/yyyy'}} </td>
+                <td> {{ receipt.fileName }} </td>
+                <td> {{receipt.dataReceived  |  date:'MM/dd/yyyy'}} </td>
+                <td hidden=true>
+                    <!-- {{ receipt.sampleSentForApproval }}  -->
+                    <p *ngIf="receipt.sampleSentForApproval =='1'">Yes</p>
+                    <p *ngIf="receipt.sampleSentForApproval =='0'">No </p>
+                </td>
+                <td> {{ receipt.bills }} </td>
+                <td>
+                    <!-- {{ receipt.approvalReceived }}  -->
+                    <p *ngIf="receipt.approvalReceived =='1'">Yes</p>
+                    <p *ngIf="receipt.approvalReceived =='0'">No </p>
+                </td>
+                <td> {{ receipt.prinitngCompleted  |  date:'MM/dd/yyyy'}} </td>
+                <td> {{ receipt.dcNumber }} </td>
+                <td> {{ receipt.dcCreated |  date:'MM/dd/yyyy'}} </td>
+                <td hidden=true>{{ receipt.takenForDelivery |  date:'MM/dd/yyyy'}} </td>
+                <td> {{ receipt.dispatchDatetime |  date:'MM/dd/yyyy'}} </td>
+                <td> {{ receipt.deliveredDatetime |  date:'MM/dd/yyyy'}} </td>
+            </tr>
+        </tbody>
+        <ul class="pagination">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </ul>
+    </table>
+</form>
