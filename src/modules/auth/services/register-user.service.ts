@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import {map} from 'rxjs/operators';
 //import { Observable } from 'rxjs/internal/observable';
+import * as Global from '../../../modules/dashboard/Global'
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +15,7 @@ export class RegisterUserService {
     strCreatedDate:any,strCreatedBy:any,strUpdatedDate:any,strUpdatedBy:any){
     let hdr = {'Content-Type': 'application/json'};
     let options = { headers: hdr };
-    return this._httpclient.post<any>("https://localhost:44313/api/test1", 
+    return this._httpclient.post<any>(Global.apipath + "test1", 
       JSON.stringify({ 
         UserName: strUserName,
         UserMiddleName: strUserMiddleName ,
