@@ -20,7 +20,8 @@
         "serve": "./node_modules/.bin/static-server dist/sb-admin-angular",
         "start": "node server.js",
         "test": "npm run ng -- test",
-        "heroku-postbuild": "ng build --prod"
+        "heroku-postbuild": "ng build --prod",
+        "postinstall": "ng build --aot --prod"
     },
     "private": true,
     "dependencies": {
