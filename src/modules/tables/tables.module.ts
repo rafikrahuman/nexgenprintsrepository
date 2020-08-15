@@ -35,7 +35,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter'
         AppCommonModule,
         NavigationModule,
         NgxPaginationModule,
-        Ng2SearchPipeModule
+        Ng2SearchPipeModule,        
     ],
     providers: [
         DecimalPipe,

@@ -13,7 +13,7 @@ import { Country } from '@modules/tables/models';
 import { CountryService } from '@modules/tables/services';
 import { Observable } from 'rxjs';
 import { ReceiptService } from '@modules/dashboard/services/receipt.service';
-import { clsReceipt } from '@modules/dashboard/models/clsReceipt';
+//import { clsReceipt } from '@modules/dashboard/models/clsReceipt';
 // import {NgxPaginationModule} from 'ngx-pagination';  
 // import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
