@@ -30,7 +30,8 @@ export class NgBootstrapTableComponent implements OnInit, OnDestroy {
     total$!: Observable<number>;
     sortedColumn!: string;
     sortedDirection!: string;
-
+    p : any; // HErouku
+    filter : any; //heroku
     //receiptModel : clsReceipt[] = [];
     receiptModel: any;
 
