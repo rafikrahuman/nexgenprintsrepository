@@ -26,7 +26,7 @@ export const ROUTES: Routes = [
         component: authContainers.LoginComponent,
         //component: DashboardComponent,
         data: {
-            title: 'Pages Login - NexGen Softwares',
+            title: 'Pages Login - NexGen',
         } as SBRouteData,
     },
     {
@@ -34,7 +34,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: authContainers.RegisterComponent,
         data: {
-            title: 'Pages Register - NexGen Softwares',
+            title: 'Pages Register - NexGen',
         } as SBRouteData,
     },
     {
@@ -42,7 +42,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: authContainers.ForgotPasswordComponent,
         data: {
-            title: 'Pages Forgot Password - NexGen Softwares',
+            title: 'Pages Forgot Password - NexGen',
         } as SBRouteData,
     },
 ];

@@ -19,7 +19,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: chartsContainers.ChartsComponent,
         data: {
-            title: 'Charts - NexGen Softwares',
+            title: 'Charts - NexGen',
             breadcrumbs: [
                 {
                     text: 'Dashboard',

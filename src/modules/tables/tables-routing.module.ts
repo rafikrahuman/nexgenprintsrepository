@@ -19,7 +19,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: tablesContainers.TablesComponent,
         data: {
-            title: 'Tables - NexGen Softwares',
+            title: 'Tables - NexGen',
             breadcrumbs: [
                 {
                     text: 'Dashboard',

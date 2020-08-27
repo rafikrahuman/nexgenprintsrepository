@@ -13,6 +13,7 @@ import { Country } from '@modules/tables/models';
 import { CountryService } from '@modules/tables/services';
 import { Observable } from 'rxjs';
 import { ReceiptService } from '@modules/dashboard/services/receipt.service';
+//import { DashboardCardsComponent } from '@modules/dashboard/components/dashboard-cards/dashboard-cards.component'
 //import { clsReceipt } from '@modules/dashboard/models/clsReceipt';
 // import {NgxPaginationModule} from 'ngx-pagination';  
 // import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -43,6 +44,7 @@ export class NgBootstrapTableComponent implements OnInit, OnDestroy {
         public countryService: CountryService,
         private changeDetectorRef: ChangeDetectorRef,
         private receiptservice: ReceiptService
+        // private dashboardcomp : DashboardCardsComponent
     ) {this.bgcolor = "#007BFF" }
 
     ngOnInit() {
@@ -55,9 +57,19 @@ export class NgBootstrapTableComponent implements OnInit, OnDestroy {
         // })
 
         //this.receiptModel = this.receiptservice.share ;
+
+        this.receiptservice.getInhouseDetails().subscribe(
+            x => {
+                this.receiptModel = x;
+                this.receiptservice.UpdateTable(this.receiptModel);
+               
+                //console.log("HI");
+            }
+        );
+        this.receiptservice.UpdateTableColor("#007BFF");
         this.receiptservice.share.subscribe(data => {
             this.receiptModel = data;
-
+            // this.dashboardcomp.getInhouse();
             this.receiptservice.sharetablecolor.subscribe(datacolor => {
                 //this.getBackgroundColor(datacolor);
                 this.bgcolor = datacolor;

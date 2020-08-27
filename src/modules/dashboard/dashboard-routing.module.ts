@@ -18,7 +18,7 @@ export const ROUTES: Routes = [
     {
         path: '',
         data: {
-            title: 'Dashboard - NexGen Softwares',
+            title: 'Dashboard - NexGen',
             breadcrumbs: [
                 {
                     text: 'Dashboard',
@@ -32,7 +32,7 @@ export const ROUTES: Routes = [
     {
         path: 'static',
         data: {
-            title: 'Dashboard Static - NexGen Softwares',
+            title: 'Dashboard Static - NexGen',
             breadcrumbs: [
                 {
                     text: 'Dashboard',
@@ -50,7 +50,7 @@ export const ROUTES: Routes = [
     {
         path: 'light',
         data: {
-            title: 'Dashboard Light - NexGen Softwares',
+            title: 'Dashboard Light - NexGen',
             breadcrumbs: [
                 {
                     text: 'Dashboard',
